@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Swift App Store Receipt Validation
+
+Globals:
+  Function:
+    Timeout: 10
+    CodeUri: .
+    Handler: swift.bootstrap
+    Runtime: provided.al2
+    MemorySize: 512
+
+Resources:
+  ReceiptValidationLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Events:
+        ApiTrigger:
+          Type: Api
+          Properties:
+            Path: /
+            Method: get
+    Metadata:
+      BuildMethod: makefile
+      
+Outputs:
+  ApiEndpoint:
+    Description: "API endpoint URL"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod"
