@@ -17,7 +17,6 @@ Lambda.run { (context, input: Input, callback: @escaping (Result<Output, Error>)
 
     let appStoreClient = AppStore.Client(httpClient: httpClient, secret: "abc123")
 
-    let base64EncodedReceipt: String = ...
-    let receipt = try appStoreClient.validateReceipt(base64EncodedReceipt).wait()
+    let receipt = try appStoreClient.validateReceipt(input.receipt).wait()
     callback(.success(Output(isValid: false)))
 }
