@@ -20,6 +20,9 @@ Resources:
           Properties:
             Path: /validate
             Method: post
+     Environment:
+        Variables:
+            APPSECRET: "2f3e96197d5d49a3adbaef179235c48c"
     Metadata:
       BuildMethod: makefile
       
