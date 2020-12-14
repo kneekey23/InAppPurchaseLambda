@@ -17,6 +17,7 @@ struct Output: Codable {
 Lambda.run { (context, input: APIGateway.Request, callback: @escaping (Result<APIGateway.Response, Error>) -> Void) in
     print(input)
     let decoder = JSONDecoder()
+    let encoder = JSONEncoder()
     //decode the receipt from the body of the api gateway request
     guard let body = input.body else {
         //if there is nothing in the body of the request return a bad request status code
@@ -40,7 +41,8 @@ Lambda.run { (context, input: APIGateway.Request, callback: @escaping (Result<AP
             isValid = true
         }
         let output = Output(isValid: isValid)
-        let encoder = JSONEncoder()
+        
+        //have to encode the response for api gateway
         let encodedOutput = try encoder.encode(output)
         let encodedOutputString = String(decoding: encodedOutput, as: UTF8.self)
         let response = APIGateway.Response(statusCode: .ok, body: encodedOutputString)
