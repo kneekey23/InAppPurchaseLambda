@@ -23,18 +23,25 @@ Lambda.run { (context, input: APIGateway.Request, callback: @escaping (Result<AP
         callback(.success(APIGateway.Response(statusCode: .badRequest)))
         return
     }
-    print(body)
+    
     do {
         let receiptInput = try decoder.decode(Input.self, from: body)
         let httpClient = HTTPClient(eventLoopGroupProvider: .createNew)
-        defer { try? httpClient.syncShutdown() }
-        let secret = getEnvVariable(name: "APPSECRET")
-        let appStoreClient = AppStore.Client(httpClient: httpClient, secret: secret)
+        defer { try? httpClient.syncShutdown()}
+        //if you have a receipt with an auto-renewable subscription you would include an app secret and uncomment the below line
+        //let secret = getEnvVariable(name: "APPSECRET")
+        let appStoreClient = AppStore.Client(httpClient: httpClient, secret: nil)
+        print("app store client created about to make the call")
         let receipt = try appStoreClient.validateReceipt(receiptInput.receipt).wait()
-        print(receipt)
-        let output = Output(isValid: true)
+        print("object was returned \(receipt)")
+        var isValid = false
+        //for subscriptions youll want ot compare expiration dates of a subscription for but for just consumable purchases, i just want to confirm that it has been purchased so that there is something inside the inApp Array.
+        if receipt.inApp.count > 1 {
+            isValid = true
+        }
+        let output = Output(isValid: isValid)
         let encoder = JSONEncoder()
-        let encodedOutput = try! encoder.encode(output)
+        let encodedOutput = try encoder.encode(output)
         let encodedOutputString = String(decoding: encodedOutput, as: UTF8.self)
         let response = APIGateway.Response(statusCode: .ok, body: encodedOutputString)
         callback(.success(response))

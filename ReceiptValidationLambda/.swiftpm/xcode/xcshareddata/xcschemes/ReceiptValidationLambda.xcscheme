@@ -80,6 +80,11 @@
             value = "true"
             isEnabled = "YES">
          </EnvironmentVariable>
+         <EnvironmentVariable
+            key = "APPSECRET"
+            value = "2f3e96197d5d49a3adbaef179235c48c"
+            isEnabled = "YES">
+         </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
