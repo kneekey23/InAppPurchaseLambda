@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "ReceiptValidationLambda",
+    platforms: [.macOS(SupportedPlatform.MacOSVersion.v10_14)],
     products: [
       .executable(name: "ReceiptValidationLambda",
                   targets: ["ReceiptValidationLambda"]),
@@ -14,7 +15,7 @@ let package = Package(
         .package(url: "https://github.com/swift-server/swift-aws-lambda-runtime.git", .upToNextMajor(from:"0.3.0")),
         .package(url: "https://github.com/swift-server/async-http-client", .upToNextMajor(from: "1.1.0")),
         .package(url: "https://github.com/apple/swift-nio", .upToNextMajor(from: "2.14.0")),
-       // .package(url: "https://github.com/fabianfett/swift-app-store-receipt-validation", .upToNextMajor(from: "0.1.0"))
+        .package(url: "https://github.com/fabianfett/swift-app-store-receipt-validation", .upToNextMajor(from: "0.1.0"))
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -27,7 +28,7 @@ let package = Package(
                 .product(name: "AWSLambdaEvents", package: "swift-aws-lambda-runtime"),
                 .product(name: "NIO", package: "swift-nio"),
                 .product(name: "AsyncHTTPClient", package: "async-http-client"),
-               // .product(name: "AppStoreReceiptValidation", package: "swift-app-store-receipt-validation"),
+                .product(name: "AppStoreReceiptValidation", package: "swift-app-store-receipt-validation"),
             ]),
         .testTarget(
             name: "ReceiptValidationLambdaTests",

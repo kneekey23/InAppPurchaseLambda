@@ -1,0 +1,10 @@
+version = 0.1
+[dev]
+[dev.deploy]
+[dev.deploy.parameters]
+stack_name = "appstorelambda"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1iv22bc37vrlo"
+s3_prefix = "appstorelambda"
+region = "us-west-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"

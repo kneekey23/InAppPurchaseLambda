@@ -12,7 +12,7 @@ struct ProductCell: View {
     let name: String
     let subtitle: String
     let product: SKProduct
-    @State var receiptPresent: Bool = Receipt.isReceiptPresent()
+    let receiptIsValid: Bool
     var body: some View {
         HStack {
             VStack {
@@ -21,7 +21,7 @@ struct ProductCell: View {
                     .font(.system(size: 10))
             }
             Spacer()
-            if !receiptPresent {
+            if !receiptIsValid {
             Button("Buy") {
                 IAPManager.shared.purchaseV5(product: product)
             }.foregroundColor(Color.blue)
@@ -35,6 +35,6 @@ struct ProductCell: View {
 
 struct Product_Previews: PreviewProvider {
     static var previews: some View {
-        ProductCell(name: "Test", subtitle: "Test", product: SKProduct())
+        ProductCell(name: "Test", subtitle: "Test", product: SKProduct(), receiptIsValid: false)
     }
 }

@@ -18,8 +18,8 @@ Resources:
         ApiTrigger:
           Type: Api
           Properties:
-            Path: /
-            Method: get
+            Path: /validate
+            Method: post
     Metadata:
       BuildMethod: makefile
       

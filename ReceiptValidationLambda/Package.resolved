@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "swift-app-store-receipt-validation",
+        "repositoryURL": "https://github.com/fabianfett/swift-app-store-receipt-validation",
+        "state": {
+          "branch": null,
+          "revision": "979127f0a68f2977f7b84c0138fdea456ff7c609",
+          "version": "0.1.1"
+        }
+      },
+      {
         "package": "swift-aws-lambda-runtime",
         "repositoryURL": "https://github.com/swift-server/swift-aws-lambda-runtime.git",
         "state": {

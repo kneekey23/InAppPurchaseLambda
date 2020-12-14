@@ -2,7 +2,7 @@ import AWSLambdaRuntime
 import AWSLambdaEvents
 import Foundation
 import AsyncHTTPClient
-//import AppStoreReceiptValidation
+import AppStoreReceiptValidation
 
 struct Input: Codable {
     //base 64 encoded string containing app store receipt
@@ -25,17 +25,23 @@ Lambda.run { (context, input: APIGateway.Request, callback: @escaping (Result<AP
     //body is a base 64 encoded string so need to decode first before decoding from json
     let decodedData = Data(base64Encoded: body)!
     let decodedString = String(data: decodedData, encoding: .utf8)!
-    print(decodedString)
+    
     let receiptInput = try! decoder.decode(Input.self, from: decodedString)
     let httpClient = HTTPClient(eventLoopGroupProvider: .createNew)
     defer { try? httpClient.syncShutdown() }
-//
-//    let appStoreClient = AppStore.Client(httpClient: httpClient, secret: "abc123")
-//    let receipt = try appStoreClient.validateReceipt(receiptInput.receipt).wait()
-    let output = Output(isValid: true)
-    let encoder = JSONEncoder()
-    let encodedOutput = try! encoder.encode(output)
-    let encodedOutputString = String(decoding: encodedOutput, as: UTF8.self)
-    let response = APIGateway.Response(statusCode: .ok, body: encodedOutputString)
-    callback(.success(response))
+
+    let appStoreClient = AppStore.Client(httpClient: httpClient, secret: "abc123")
+    do {
+        let receipt = try appStoreClient.validateReceipt(receiptInput.receipt).wait()
+        print(receipt)
+        let output = Output(isValid: true)
+        let encoder = JSONEncoder()
+        let encodedOutput = try! encoder.encode(output)
+        let encodedOutputString = String(decoding: encodedOutput, as: UTF8.self)
+        let response = APIGateway.Response(statusCode: .ok, body: encodedOutputString)
+        callback(.success(response))
+    } catch let err {
+        print(err)
+        callback(.failure(err))
+    }
 }

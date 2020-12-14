@@ -16,9 +16,9 @@
 		95D0778B2582FA240046FCF7 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D0778A2582FA240046FCF7 /* ProductCell.swift */; };
 		95D077A3258308450046FCF7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D077A2258308450046FCF7 /* StoreKit.framework */; };
 		95D077B82583121D0046FCF7 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D077B72583121D0046FCF7 /* IAPManager.swift */; };
-		95D077C3258323B90046FCF7 /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D077C2258323B90046FCF7 /* Receipt.swift */; };
+		95D077C3258323B90046FCF7 /* ReceiptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D077C2258323B90046FCF7 /* ReceiptManager.swift */; };
 		95D077C8258324890046FCF7 /* IAPReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D077C7258324890046FCF7 /* IAPReceipt.swift */; };
-		95D0783E258325620046FCF7 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D0783B258325620046FCF7 /* libcrypto.a */; };
+		95E734B025869B9B00A7181B /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E734AF25869B9B00A7181B /* Receipt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		95D0778A2582FA240046FCF7 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		95D077A2258308450046FCF7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		95D077B72583121D0046FCF7 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
-		95D077C2258323B90046FCF7 /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		95D077C2258323B90046FCF7 /* ReceiptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptManager.swift; sourceTree = "<group>"; };
 		95D077C7258324890046FCF7 /* IAPReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPReceipt.swift; sourceTree = "<group>"; };
 		95D077D0258325610046FCF7 /* pem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
 		95D077D1258325610046FCF7 /* kdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kdf.h; sourceTree = "<group>"; };
@@ -164,6 +164,7 @@
 		95D07839258325620046FCF7 /* asn1err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1err.h; sourceTree = "<group>"; };
 		95D0783B258325620046FCF7 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		95D0783C258325620046FCF7 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
+		95E734AF25869B9B00A7181B /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,7 +172,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95D0783E258325620046FCF7 /* libcrypto.a in Frameworks */,
 				95D077A3258308450046FCF7 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,8 +224,9 @@
 				95D077622582F92E0046FCF7 /* Preview Content */,
 				95D0778A2582FA240046FCF7 /* ProductCell.swift */,
 				95D077B72583121D0046FCF7 /* IAPManager.swift */,
-				95D077C2258323B90046FCF7 /* Receipt.swift */,
+				95D077C2258323B90046FCF7 /* ReceiptManager.swift */,
 				95D077C7258324890046FCF7 /* IAPReceipt.swift */,
+				95E734AF25869B9B00A7181B /* Receipt.swift */,
 			);
 			path = InAppPurchaseApp;
 			sourceTree = "<group>";
@@ -534,8 +535,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95D077C3258323B90046FCF7 /* Receipt.swift in Sources */,
+				95D077C3258323B90046FCF7 /* ReceiptManager.swift in Sources */,
 				95D077B82583121D0046FCF7 /* IAPManager.swift in Sources */,
+				95E734B025869B9B00A7181B /* Receipt.swift in Sources */,
 				95D0775F2582F92D0046FCF7 /* ContentView.swift in Sources */,
 				95D077C8258324890046FCF7 /* IAPReceipt.swift in Sources */,
 				95D0775D2582F92D0046FCF7 /* InAppPurchaseAppApp.swift in Sources */,
@@ -701,23 +703,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"InAppPurchaseApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 9EVWV3K6BK;
 				ENABLE_PREVIEWS = YES;
-				"HEADER_SEARCH_PATHS[arch=*]" = "$(SRCROOT)/OpenSSL/include";
 				INFOPLIST_FILE = InAppPurchaseApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/InAppPurchaseApp/Preview\\ Content/OpenSSL/lib",
-					"$(PROJECT_DIR)/InAppPurchaseApp/Preview\\ Content/OpenSSL/lib",
-					"$(PROJECT_DIR)/InAppPurchaseApp/OpenSSL/lib",
-				);
-				"LIBRARY_SEARCH_PATHS[arch=*]" = "$(PROJECT_DIR)/OpenSSL/lib";
 				PRODUCT_BUNDLE_IDENTIFIER = com.reinvent.InAppPurchaseApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"SWIFT_INCLUDE_PATHS[arch=*]" = "$(SRCROOT)/$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -739,12 +732,6 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
-				);
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/InAppPurchaseApp/Preview\\ Content/OpenSSL/lib",
-					"$(PROJECT_DIR)/InAppPurchaseApp/Preview\\ Content/OpenSSL/lib",
-					"$(PROJECT_DIR)/InAppPurchaseApp/OpenSSL/lib",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.reinvent.InAppPurchaseApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

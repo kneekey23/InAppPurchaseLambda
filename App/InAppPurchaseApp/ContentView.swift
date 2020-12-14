@@ -11,13 +11,14 @@ import StoreKit
 struct ContentView: View {
    // @Binding var purchased:Bool
     @ObservedObject var products = productsDB.shared
-    
+    @State var receiptIsValid = false
     var body: some View {
         NavigationView {
             ForEach(self.products.items, id: \.self) { product in
                 ProductCell(name: product.localizedDescription,
                             subtitle: "AWS Framed Quote",
-                            product: product)
+                            product: product,
+                            receiptIsValid: receiptIsValid)
             }.navigationTitle("Reinvent Sale")
             .navigationBarItems(trailing:
                 Button("Restore") {
@@ -27,8 +28,9 @@ struct ContentView: View {
         }.onAppear() {
             IAPManager.shared.getProductsV5()
             // If a receipt is present validate it
-            if Receipt.isReceiptPresent() {
-                Receipt.loadAndValidateReceipt()
+            if ReceiptManager.isReceiptPresent() {
+                receiptIsValid = ReceiptManager.loadAndValidateReceipt()
+               
             } 
         }
     }
