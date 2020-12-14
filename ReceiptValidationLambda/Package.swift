@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "ReceiptValidationLambda",
-    platforms: [.macOS(SupportedPlatform.MacOSVersion.v10_14)],
+    platforms: [.macOS(.v10_14)],
     products: [
       .executable(name: "ReceiptValidationLambda",
                   targets: ["ReceiptValidationLambda"]),

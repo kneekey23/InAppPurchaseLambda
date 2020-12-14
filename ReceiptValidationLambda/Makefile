@@ -10,17 +10,14 @@ builder-bot:
 				$(eval $@STAGE = $($@BUILD_DIR)/lambda)
 				$(eval $@ARTIFACTS_DIR = $(PWD)/.aws-sam/build/$($@PRODUCT))
 
-				# Create docker file
-				# docker build -f Dockerfile . -t builder
-
 				# prep directories
 				mkdir -p $($@BUILD_DIR)/lambda $($@ARTIFACTS_DIR)
 
 				# Compile application
-				docker run --rm -v $($@BUILD_DIR):/build-target -v `pwd`:/build-src -w /build-src builder bash -cl "swift build --product $($@PRODUCT) -c release --build-path /build-target"
+				docker run --rm -v $($@BUILD_DIR):/build-target -v `pwd`:/build-src -w /build-src builder bash -cl "swift build --product $($@PRODUCT) -c release -Xswiftc -static-stdlib --build-path /build-target"
 
-				# copy deps
-				-docker run --rm -v $($@BUILD_DIR):/build-target -v `pwd`:/build-src -w /build-src builder bash -cl "ldd '/build-target/release/$($@PRODUCT)' | grep swift | awk '{print $3}' | xargs cp -Lv -t /build-target/lambda"
+				# link deps
+				-docker run --rm -v $($@BUILD_DIR):/build-target -v `pwd`:/build-src -w /build-src builder bash -cl "cd /build-target/lambda && ln -s $($@PRODUCT) /bootstrap"
 
 				# copy binary to stage
 				cp $($@BUILD_DIR)/release/$($@PRODUCT) $($@BUILD_DIR)/lambda/bootstrap
