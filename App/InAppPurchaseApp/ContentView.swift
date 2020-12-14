@@ -29,7 +29,9 @@ struct ContentView: View {
             IAPManager.shared.getProductsV5()
             // If a receipt is present validate it
             if ReceiptManager.isReceiptPresent() {
-                receiptIsValid = ReceiptManager.loadAndValidateReceipt()
+                ReceiptManager.loadAndValidateReceipt { (valid) in
+                    receiptIsValid = valid
+                }
                
             } 
         }

@@ -39,8 +39,11 @@ class ReceiptManager {
     init() {
     }
     
-    static public func loadAndValidateReceipt() -> Bool {
-        guard let receipt = loadReceipt() else {return false}
+    static public func loadAndValidateReceipt(completion: @escaping (Bool) -> Void) {
+        guard let receipt = loadReceipt() else {
+            completion(false)
+            return
+        }
         
         let receiptObject = Receipt(receipt: receipt)
         let encoder = JSONEncoder()
@@ -55,25 +58,22 @@ class ReceiptManager {
         request.httpMethod = "POST"
         print(request)
         let task = urlSession.dataTask(with: request) { (data, urlResponse, error) in
-            print(data)
             if let data = data, error == nil {
             let decoder = JSONDecoder()
                 do {
                     let output = try decoder.decode(Output.self, from: data)
                     print(output)
                     receiptIsValid = output.isValid
+                    completion(receiptIsValid)
                 }
                 catch let err {
-                   //do nothing
                     print(err)
+                    completion(receiptIsValid)
                 }
             }
-            print(urlResponse)
-            print(error)
         }
         task.resume()
         
-        return receiptIsValid //invalid receipt
     }
     
     static private func loadReceipt() -> String? {
