@@ -78,8 +78,8 @@
             filePath = "InAppPurchaseApp/ReceiptManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "loadAndValidateReceipt(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -94,8 +94,8 @@
             filePath = "InAppPurchaseApp/ReceiptManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
             landmarkName = "isReceiptPresent()"
             landmarkType = "7">
          </BreakpointContent>
@@ -110,8 +110,8 @@
             filePath = "InAppPurchaseApp/ReceiptManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "loadReceipt()"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "InAppPurchaseApp/ReceiptManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
             landmarkName = "loadAndValidateReceipt(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -158,8 +158,8 @@
             filePath = "InAppPurchaseApp/ReceiptManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "loadAndValidateReceipt(completion:)"
             landmarkType = "7">
          </BreakpointContent>

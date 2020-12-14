@@ -23,7 +23,7 @@ struct ProductCell: View {
             Spacer()
             if !receiptIsValid {
             Button("Buy") {
-                IAPManager.shared.purchaseV5(product: product)
+              _ = IAPManager.shared.purchaseV5(product: product)
             }.foregroundColor(Color.blue)
             } else {
                 Image("checkmark")

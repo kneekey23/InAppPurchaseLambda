@@ -9,7 +9,7 @@ import SwiftUI
 import StoreKit
 
 struct ContentView: View {
-   // @Binding var purchased:Bool
+   
     @ObservedObject var products = productsDB.shared
     @State var receiptIsValid = false
     var body: some View {
@@ -27,7 +27,7 @@ struct ContentView: View {
             )
         }.onAppear() {
             IAPManager.shared.getProductsV5()
-            // If a receipt is present validate it
+            // If a receipt is present validate it and adjust state to show a checkmark instead of the buy button
             if ReceiptManager.isReceiptPresent() {
                 ReceiptManager.loadAndValidateReceipt { (valid) in
                     receiptIsValid = valid

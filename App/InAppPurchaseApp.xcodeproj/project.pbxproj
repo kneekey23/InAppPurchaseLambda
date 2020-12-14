@@ -17,7 +17,6 @@
 		95D077A3258308450046FCF7 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95D077A2258308450046FCF7 /* StoreKit.framework */; };
 		95D077B82583121D0046FCF7 /* IAPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D077B72583121D0046FCF7 /* IAPManager.swift */; };
 		95D077C3258323B90046FCF7 /* ReceiptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D077C2258323B90046FCF7 /* ReceiptManager.swift */; };
-		95D077C8258324890046FCF7 /* IAPReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95D077C7258324890046FCF7 /* IAPReceipt.swift */; };
 		95E734B025869B9B00A7181B /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E734AF25869B9B00A7181B /* Receipt.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,7 +54,6 @@
 		95D077A2258308450046FCF7 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		95D077B72583121D0046FCF7 /* IAPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPManager.swift; sourceTree = "<group>"; };
 		95D077C2258323B90046FCF7 /* ReceiptManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptManager.swift; sourceTree = "<group>"; };
-		95D077C7258324890046FCF7 /* IAPReceipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPReceipt.swift; sourceTree = "<group>"; };
 		95D077D0258325610046FCF7 /* pem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
 		95D077D1258325610046FCF7 /* kdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kdf.h; sourceTree = "<group>"; };
 		95D077D2258325610046FCF7 /* pem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem.h; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 				95D0778A2582FA240046FCF7 /* ProductCell.swift */,
 				95D077B72583121D0046FCF7 /* IAPManager.swift */,
 				95D077C2258323B90046FCF7 /* ReceiptManager.swift */,
-				95D077C7258324890046FCF7 /* IAPReceipt.swift */,
 				95E734AF25869B9B00A7181B /* Receipt.swift */,
 			);
 			path = InAppPurchaseApp;
@@ -539,7 +536,6 @@
 				95D077B82583121D0046FCF7 /* IAPManager.swift in Sources */,
 				95E734B025869B9B00A7181B /* Receipt.swift in Sources */,
 				95D0775F2582F92D0046FCF7 /* ContentView.swift in Sources */,
-				95D077C8258324890046FCF7 /* IAPReceipt.swift in Sources */,
 				95D0775D2582F92D0046FCF7 /* InAppPurchaseAppApp.swift in Sources */,
 				95D0778B2582FA240046FCF7 /* ProductCell.swift in Sources */,
 			);

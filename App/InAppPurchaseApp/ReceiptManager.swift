@@ -6,23 +6,6 @@
 //
 import Foundation
 
-enum ReceiptStatus: String {
-    case validationSuccess = "This receipt is valid."
-    case noReceiptPresent = "A receipt was not found on this device."
-    case unknownFailure = "An unexpected failure occurred during verification."
-    case unknownReceiptFormat = "The receipt is not in PKCS7 format."
-    case invalidPKCS7Signature = "Invalid PKCS7 Signature."
-    case invalidPKCS7Type = "Invalid PKCS7 Type."
-    case invalidAppleRootCertificate = "Public Apple root certificate not found."
-    case failedAppleSignature = "Receipt not signed by Apple."
-    case unexpectedASN1Type = "Unexpected ASN1 Type."
-    case missingComponent = "Expected component was not found."
-    case invalidBundleIdentifier = "Receipt bundle identifier does not match application bundle identifier."
-    case invalidVersionIdentifier = "Receipt version identifier does not match application version."
-    case invalidHash = "Receipt failed hash check."
-    case invalidExpired = "Receipt has expired."
-}
-
 class ReceiptManager {
     static let receiptAPIURL = "https://kfolhojv16.execute-api.us-west-2.amazonaws.com/Prod/validate"
     
